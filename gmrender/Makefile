@@ -25,7 +25,7 @@ include $(INCLUDE_DIR)/nls.mk
 define Package/$(PKG_NAME)
   SECTION:=multimedia
   CATEGORY:=Multimedia
-  DEPENDS:= +glib2 +libupnp +gst1-libav
+  DEPENDS:= +glib2 +libupnp +libgstreamer1 +gstreamer1-libs
   TITLE:=Headless UPnP Renderer
 endef
 
@@ -35,6 +35,7 @@ endef
 
 CONFIGURE_ARGS+= \
   --with-build-cc="$(HOSTCC)" \
+  --with-gstreamer \
   --prefix="/usr"
 
 define Package/$(PKG_NAME)/install
