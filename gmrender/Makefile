@@ -3,7 +3,7 @@
 include $(TOPDIR)/rules.mk
 
 PKG_NAME:=gmediarender
-PKG_VERSION:=2024-08-01
+PKG_VERSION:=2024.08.01
 PKG_RELEASE:=1
 
 PKG_SOURCE_PROTO:=git
