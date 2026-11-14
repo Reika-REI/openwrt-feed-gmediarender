@@ -1,0 +1,26 @@
+name: Build gmediarender for UZ801
+
+on:
+  push:
+    branches: [ master, main ]
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Build OpenWrt Package (.apk)
+        uses: nooblk-98/openwrt-package-compile-action@v1
+        with:
+          package-name: gmediarender
+          package-dir: gmrender
+          sdk-version: 25.12.6
+          sdk-target: armsr
+          sdk-subtarget: armv8
+          feeds-update: base packages luci
+          feeds-install: libupnp gstreamer1 gst1-plugins-base
+          artifact-name: gmediarender-uz801-apk
+          
